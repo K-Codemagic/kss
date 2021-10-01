@@ -5,7 +5,6 @@ workflows:
     environment:
       groups:
         - keystore
-        - key
       flutter: stable
       xcode: latest
       cocoapods: default
