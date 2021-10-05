@@ -7,7 +7,7 @@ workflows:
         - keystore
         - google_credentials
       vars:
-        - PACKAGE_NAME:
+        - PACKAGE_NAME:"ks.s.kss"
       flutter: stable
       xcode: latest
       cocoapods: default
