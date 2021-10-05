@@ -5,6 +5,7 @@ workflows:
     environment:
       groups:
         - keystore
+        - google_credentials
       flutter: stable
       xcode: latest
       cocoapods: default
@@ -38,6 +39,8 @@ workflows:
       email:
         recipients:
           - kalgi@nevercode.io
-        notify:
-          success: true     # To not receive a notification when a build succeeds
-          failure: false    # To not receive a notification when a build fails
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+        in_app_update_priority: 0
+
