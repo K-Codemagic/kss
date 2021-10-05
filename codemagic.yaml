@@ -31,6 +31,7 @@ workflows:
       - name: Build AAB with Flutter  
         script: |
           cd . && flutter build appbundle --release --build-name=1.0.$PROJECT_BUILD_NUMBER --build-number=$PROJECT_BUILD_NUMBER
+    artifacts:
       - build/**/outputs/apk/**/*.apk
       - build/**/outputs/bundle/**/*.aab
       - build/**/outputs/**/mapping.txt
