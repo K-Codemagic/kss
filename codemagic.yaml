@@ -11,6 +11,7 @@ workflows:
     scripts:
       - name: Set up key properties
         script: |
+          echo $FCI_KEY_ALIAS
           echo $FCI_KEYSTORE | base64 --decode > /tmp/keystore.keystore
           cat >> "$FCI_BUILD_DIR/android/key.properties" <<EOF
           storePassword=$FCI_KEYSTORE_PASSWORD
