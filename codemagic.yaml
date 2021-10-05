@@ -6,6 +6,8 @@ workflows:
       groups:
         - keystore
         - google_credentials
+      vars:
+        - PACKAGE_NAME:
       flutter: stable
       xcode: latest
       cocoapods: default
@@ -28,7 +30,7 @@ workflows:
           cd . && flutter packages pub get
       - name: Build AAB with Flutter  
         script: |
-          cd . && flutter build appbundle --release      
+          cd . && flutter build appbundle --release --build-name=1.0.0 --build-number=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))     
     artifacts:
       - build/**/outputs/apk/**/*.apk
       - build/**/outputs/bundle/**/*.aab
