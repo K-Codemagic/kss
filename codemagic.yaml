@@ -42,7 +42,7 @@ workflows:
         recipients:
           - kalgi@nevercode.io
       google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS1
         track: internal
         in_app_update_priority: 0
 
