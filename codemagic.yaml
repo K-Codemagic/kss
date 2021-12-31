@@ -27,6 +27,9 @@ workflows:
       - name: Get Flutter packages
         script: |
           cd . && flutter packages pub get
+          flutter emulators --launch emulator &
+          adb wait-for-device
+flutter drive --driver=test_driver/integration_driver.dart --target=integration_test/app_test.dart -d emulator-5554
       - name: Build AAB with Flutter  
         script: |
           cd . && flutter build apk --release --build-name=1.0.$PROJECT_BUILD_NUMBER --build-number=$PROJECT_BUILD_NUMBER
