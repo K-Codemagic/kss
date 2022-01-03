@@ -1,6 +1,4 @@
-[
-  {
+
     "language": "en-US",
     "text": "TEXT HERE"
-  }
-]
+
