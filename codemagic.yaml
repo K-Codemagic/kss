@@ -47,9 +47,9 @@ workflows:
       - name: Report build status
         script: |
           if [ -a "~/SUCCESS" ] ; then
-            build successful
+            echo "build successful"
           else
-            build failed
+            echo "build failed"
           fi    
       google_play:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
