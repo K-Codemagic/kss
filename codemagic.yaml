@@ -46,7 +46,7 @@ workflows:
       scripts:
       - name: Report build status
         script: |
-          if [ -a "~/SUCCESS" ] ; then
+          if [ -f ~/SUCCESS ] ; then
             echo "build successful"
           else
             echo "build failed"
