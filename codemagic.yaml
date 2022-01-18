@@ -42,7 +42,7 @@ workflows:
       # See the following link for details about email publishing - https://docs.codemagic.io/publishing-yaml/distribution/#email
       email:
         recipients: 
-          - kalgi@nevercoode.io
+          - kalgi@nevercode.io
       scripts:
       - name: Report build status
         script: |
