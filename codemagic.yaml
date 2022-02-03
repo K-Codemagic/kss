@@ -10,6 +10,14 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
+    triggering:
+      events:
+        - tag
+      branch_patterns:
+        - pattern: '*'
+      tag_patterns:
+        - pattern: '*'
+          include: true
     scripts:
       - name: Set up key properties
         script: |
@@ -29,7 +37,6 @@ workflows:
           cd . && flutter packages pub get
       - name: Build AAB with Flutter  
         script: |
-          cd . && flutter build apk --release --build-name=1.0.$PROJECT_BUILD_NUMBER --build-number=$PROJECT_BUILD_NUMBER
           cd . && flutter build appbundle --release --build-name=1.0.$PROJECT_BUILD_NUMBER --build-number=$PROJECT_BUILD_NUMBER
       - name: Build finished successfully
         script: touch ~/SUCCESS
