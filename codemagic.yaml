@@ -23,7 +23,6 @@ workflows:
     scripts:
       - name: Set up key properties
         script: |
-          echo $(google-play get-latest-build-number --package-name 'com.google.example')
           echo $FCI_KEY_ALIAS
           echo $FCI_KEYSTORE | base64 --decode > /tmp/keystore.keystore
           cat >> "$FCI_BUILD_DIR/android/key.properties" <<EOF
@@ -40,7 +39,8 @@ workflows:
           cd . && flutter packages pub get
       - name: Build AAB with Flutter  
         script: |
-          cd . && flutter build appbundle --release --build-name=1.0.$PROJECT_BUILD_NUMBER --build-number=$PROJECT_BUILD_NUMBER
+          cd . && flutter build apk --release --build-name=1.0.0 --build-number=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME") + 1))
+          #cd . && flutter build appbundle --release --build-name=1.0.$PROJECT_BUILD_NUMBER --build-number=$PROJECT_BUILD_NUMBER
       - name: Build finished successfully
         script: touch ~/SUCCESS
     artifacts:
