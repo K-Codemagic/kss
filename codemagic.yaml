@@ -23,6 +23,7 @@ workflows:
     scripts:
       - name: Set up key properties
         script: |
+          echo $(google-play get-latest-build-number --package-name "$PACKAGE_NAME")
           echo $FCI_KEY_ALIAS
           echo $FCI_KEYSTORE | base64 --decode > /tmp/keystore.keystore
           cat >> "$FCI_BUILD_DIR/android/key.properties" <<EOF
